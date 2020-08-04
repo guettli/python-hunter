@@ -1,7 +1,6 @@
 language: python
 dist: xenial
 cache: false
-sudo: true
 git:
   depth: false
 addons:
@@ -327,6 +326,7 @@ before_install:
     fi
 install:
   - python -mpip install --progress-bar=off twine tox-wheel -rci/requirements.txt
+  - python -c "import platform; print(platform.machine(), platform.processor(), platform.architecture())"
   - virtualenv --version
   - easy_install --version
   - pip --version
